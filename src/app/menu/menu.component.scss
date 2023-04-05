@@ -37,11 +37,11 @@ html, body {
 }
 
 .sombraDois{
-  margin-top: 829px;
+  position: fixed;
+  bottom: 0;
   background-color: #e2e2e2;
   height: 70px;
   width: 100%;
-
 }
 
 .divDireita{
@@ -94,7 +94,7 @@ html, body {
 }
 
 .botoesMenu:hover{
-  transition: 10s;
+  //transition-delay: 10s, 250ms;
   background-image: linear-gradient(to left, rgb(250, 250, 250), #1A1A1A);
 }
 
