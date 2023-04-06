@@ -24,6 +24,7 @@ export class CardComponent {
 
     ngOnInit(): void {
     	this.destribuidorDeCartasJogador();
+		this.destribuidorDeCartasRobo();
   	}
 
  
@@ -43,9 +44,20 @@ export class CardComponent {
 				this.deckDoJogardor.push(cartaAleatoria);
 				cartaDistribuida.push(indiceAleatorio);   
 			} 
-			console.log(cartaDistribuida)
 		}
 		console.log(this.deckDoJogardor) 
+		console.log(cartas[1].titulo)
+   }
+
+   destribuidorDeCartasRobo(){
+		for (let i = 0; i = 2; i++) {
+			if (this.deckDoJogardor[i].indice.includes(cartas[i].indice)) {
+				console.log("igual")
+				console.log(this.deckDoJogardor[i].titulo)
+		
+			}
+		  }
+		  console.log(cartas)
    }
 
   selecionarAtributo(index: number): void {
