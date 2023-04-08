@@ -12,7 +12,7 @@ export const cartas: cardInterface[] = [
       { titulo: 'Velocidade', valor: 3 },
     ],
     cor: '#fff',
-    imageUrl: ''
+    imageUrl: ''  
  },
  {
   titulo: 'Miranha',

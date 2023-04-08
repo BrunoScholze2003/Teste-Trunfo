@@ -14,17 +14,18 @@ export class CardComponent {
   public BaralhoCompleto = cartas;
   public deckDoJogardor: Array<cardInterface> = []
   public deckDoRobo: Array<cardInterface> = []
+  public temaDeBaralhoSelecionado: any = ""
 
 
   public carta = this.BaralhoCompleto[0]; // carta do thos fixa no momento
 
 	constructor() {
-   		 console.log(this.BaralhoCompleto);
+
   	}
 
     ngOnInit(): void {
-    	this.destribuidorDeCartasJogador();
-		this.destribuidorDeCartasRobo();
+    	this.destribuirBaralhos();
+		this.novaRodada();
   	}
 
  
@@ -46,18 +47,28 @@ export class CardComponent {
 			} 
 		}
 		console.log(this.deckDoJogardor) 
-		console.log(cartas[1].titulo)
    }
 
-   destribuidorDeCartasRobo(){
-		for (let i = 0; i = 2; i++) {
-			if (this.deckDoJogardor[i].indice.includes(cartas[i].indice)) {
-				console.log("igual")
-				console.log(this.deckDoJogardor[i].titulo)
-		
+   	destribuidorDeCartasRobo(){
+		this.deckDoRobo = this.BaralhoCompleto.filter((carta) => !this.deckDoJogardor.includes(carta));
+		console.log(this.deckDoRobo)
+   }
+
+   	destribuirBaralhos(){
+	   this.destribuidorDeCartasJogador();
+	   this.destribuidorDeCartasRobo();
+   }
+
+   novaRodada(){
+	   const atributoSelecionado:any = "";
+
+	   if(this.temaDeBaralhoSelecionado = "herois"){
+			if(this.deckDoJogardor[0].atributos > this.deckDoRobo[0].atributos){
+				
 			}
-		  }
-		  console.log(cartas)
+	   }
+	   
+	   
    }
 
   selecionarAtributo(index: number): void {
