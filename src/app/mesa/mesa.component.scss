@@ -3,6 +3,9 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .top-side{
@@ -17,23 +20,20 @@
   height: 70%;
 }
 
+.player-cards-back{
+  height: 240%;
+}
+
 .player-side{
-  position: relative;
-  top: 40%;
+  display: flex;
+  justify-content: center;
   width: 100vw;
-  height: 40%;
+  height: 20%;
   background-color: rgba(0, 0, 0, 0.74);
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-}
-
 .play-btn {
-  position: relative;
+  position: absolute;
   left: 80%;
   bottom: 30%;
   background: linear-gradient(90deg, rgba(98, 0, 195, 1) 0%, rgba(69, 0, 138, 0.63) 100%);
@@ -48,3 +48,31 @@
 .play-btn:hover {
   background: linear-gradient(90deg, rgb(152, 81, 218) 0%, rgba(141, 90, 192, 0.63) 100%);
 }
+
+.player-card {
+  position: absolute;
+  left: 25%;
+  top: 22%;
+}
+
+.bot-card {
+  transform: scale(0.7);
+  position: absolute;
+  left: 55%;
+  animation-name: card-animation-bot;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes card-animation-bot {
+  from {
+    bottom: 90%;
+  }
+  to {
+    transform: scale(1);
+    bottom: 23%;
+  }
+}
+
+
