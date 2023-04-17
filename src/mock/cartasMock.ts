@@ -42,7 +42,7 @@ export const cartas: cardInterface[] = [
  },
  {
   titulo: 'Capitão America',
-  indice: 'K6',
+  indice: 'S10',
   atributos: [
     { titulo: 'Força', valor: 16 },
     { titulo: 'Agilidade', valor: 17 },
@@ -55,7 +55,7 @@ export const cartas: cardInterface[] = [
  },
  {
   titulo: 'Doutor maluko',
-  indice: 'm2',
+  indice: 'A20',
   atributos: [
     { titulo: 'Força', valor: 21 },
     { titulo: 'Agilidade', valor: 22 },
@@ -88,6 +88,124 @@ export const cartas: cardInterface[] = [
     { titulo: 'Inteligência', valor: 33 },
     { titulo: 'Magia', valor: 34 },
     { titulo: 'Velocidade', valor: 35 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+
+ {
+  titulo: 'Flash',
+  indice: 'A23',
+  atributos: [
+    { titulo: 'Força', valor: 36 },
+    { titulo: 'Agilidade', valor: 37 },
+    { titulo: 'Inteligência', valor: 38 },
+    { titulo: 'Magia', valor: 39 },
+    { titulo: 'Velocidade', valor: 40 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Homen formiga',
+  indice: 'A32',
+  atributos: [
+    { titulo: 'Força', valor: 41 },
+    { titulo: 'Agilidade', valor: 42 },
+    { titulo: 'Inteligência', valor: 43 },
+    { titulo: 'Magia', valor: 44 },
+    { titulo: 'Velocidade', valor: 45 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Super Man',
+  indice: 'A09',
+  atributos: [
+    { titulo: 'Força', valor: 46 },
+    { titulo: 'Agilidade', valor: 47 },
+    { titulo: 'Inteligência', valor: 48 },
+    { titulo: 'Magia', valor: 49 },
+    { titulo: 'Velocidade', valor: 50 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Mulher Maravilha',
+  indice: 'AF0',
+  atributos: [
+    { titulo: 'Força', valor: 51 },
+    { titulo: 'Agilidade', valor: 52 },
+    { titulo: 'Inteligência', valor: 53 },
+    { titulo: 'Magia', valor: 54 },
+    { titulo: 'Velocidade', valor: 55 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Grout',
+  indice: 'm0',
+  atributos: [
+    { titulo: 'Força', valor: 56 },
+    { titulo: 'Agilidade', valor: 57 },
+    { titulo: 'Inteligência', valor: 58 },
+    { titulo: 'Magia', valor: 59 },
+    { titulo: 'Velocidade', valor: 60 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Looki',
+  indice: 'm0',
+  atributos: [
+    { titulo: 'Força', valor: 61 },
+    { titulo: 'Agilidade', valor: 62 },
+    { titulo: 'Inteligência', valor: 63 },
+    { titulo: 'Magia', valor: 64 },
+    { titulo: 'Velocidade', valor: 65 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Quill',
+  indice: 'm0',
+  atributos: [
+    { titulo: 'Força', valor: 66 },
+    { titulo: 'Agilidade', valor: 67 },
+    { titulo: 'Inteligência', valor: 68 },
+    { titulo: 'Magia', valor: 69 },
+    { titulo: 'Velocidade', valor: 70 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Arqueiro',
+  indice: 'm0',
+  atributos: [
+    { titulo: 'Força', valor: 71 },
+    { titulo: 'Agilidade', valor: 72 },
+    { titulo: 'Inteligência', valor: 73 },
+    { titulo: 'Magia', valor: 74 },
+    { titulo: 'Velocidade', valor: 75 },
+  ],
+  cor: '#fff',
+  imageUrl: ''
+ },
+ {
+  titulo: 'Hulk de Ferro',
+  indice: 'm0',
+  atributos: [
+    { titulo: 'Força', valor: 76 },
+    { titulo: 'Agilidade', valor: 77 },
+    { titulo: 'Inteligência', valor: 78 },
+    { titulo: 'Magia', valor: 79 },
+    { titulo: 'Velocidade', valor: 80 },
   ],
   cor: '#fff',
   imageUrl: ''

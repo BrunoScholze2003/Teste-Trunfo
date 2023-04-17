@@ -25,4 +25,19 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['mesa']);
   }
 
+  openModal(){
+    const openModalBtn = document.getElementById("openModalBtn");
+    const modalBackground = document.getElementById("modalBackground");
+    const modal = document.getElementById("modal");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+      openModalBtn!.addEventListener("click", () => {
+      modalBackground!.style.display = "block";
+    });
+
+      closeModalBtn!.addEventListener("click", () => {
+      modalBackground!.style.display = "none";
+    });
+  }
+
 }
