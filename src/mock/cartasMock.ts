@@ -12,7 +12,7 @@ export const cartas: cardInterface[] = [
       { titulo: 'Velocidade', valor: 5 },
     ],
     cor: '#fff',
-    imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'  
+    imageUrl: 'https://i.pinimg.com/originals/60/08/33/6008331c18580e1eb3d6b7804d4c4c1a.jpg'
  },
  {
   titulo: 'Miranha',
@@ -53,7 +53,7 @@ export const cartas: cardInterface[] = [
   cor: '#fff',
   imageUrl: ''
  },
- {
+ /*{
   titulo: 'Doutor maluko',
   indice: 'A20',
   atributos: [
@@ -209,5 +209,5 @@ export const cartas: cardInterface[] = [
   ],
   cor: '#fff',
   imageUrl: ''
- },
+ },*/
 ]

@@ -149,13 +149,15 @@ html, body {
 .closeModal{
   margin: 0;
   padding: 0;
-  bottom: 10px;
   left: 45%;
   position: fixed;
   border: solid 1px rgb(127, 75, 148);
   height: 50px;
   width: 100px;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closeModal:hover{

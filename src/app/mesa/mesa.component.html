@@ -1,13 +1,16 @@
 <div class="background">
   <div class="top-side">
-    <img src="https://imgur.com/CjtuNA5.png" alt="" class="top-cards-back">
+    <img src="../../assets/card-back.png" alt="" class="top-cards-back" *ngFor="let card of deckDoRobo; let i" [style.margin-left]="i + '6px'">
+  </div>
+  <div class="center-table">
+     <app-card class="player-card" (atributoSelecionadoEvent)="onAtributoSelecionadoRecebido($event)" [carta]="cartaJogador"></app-card>
+     <app-card class="bot-card" [carta]="cartaRobo"></app-card>
   </div>
   <div class="player-side">
-    <img src="https://imgur.com/8XAcPG7.png" alt="" class="player-cards-back">
-    <button class="play-btn" (click)="duelo(0)" >Jogar</button>
+    <img src="../../assets/card-back.png" alt="" class="player-cards-back" *ngFor="let card of deckDoJogardor; let i" [style.margin-left]="i + '10px'">
+    <button class="play-btn" (click)="duelo(atributoSelecionadoRecebido)" >Jogar</button>
   </div>
-  <app-card class="player-card" [carta]="cartaJogador"></app-card>
-  <app-card class="bot-card" [carta]="cartaRobo"></app-card>
 </div>
+
 
 
