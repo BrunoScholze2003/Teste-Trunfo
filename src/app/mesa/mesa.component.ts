@@ -10,13 +10,14 @@ import { cardInterface } from '../card/interfaces/card-interface';
 
 export class MesaComponent {
 
+public teste = [1,2,3,4,5]
+
   public loading = true;
   public atributoSelecionado!: number;
   public BaralhoCompleto = cartas;
-  public deckDoJogardor: Array<cardInterface> = []
-  public deckDoRobo: Array<cardInterface> = []
+  public deckDoJogardor: cardInterface[] = [];
+  public deckDoRobo: cardInterface[] = [];
   public fimDeJogo: Boolean = false;
-
   public cartaJogador: any;
   public cartaRobo: any;
 
@@ -42,7 +43,7 @@ export class MesaComponent {
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 1; i ++){
+    for(let i = 0; i <= 7; i ++){
       const indiceAleatorio = Math.floor(Math.random() * this.BaralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
