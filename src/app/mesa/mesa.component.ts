@@ -17,7 +17,6 @@ public teste = [1,2,3,4,5]
   public BaralhoCompleto = cartas;
   public deckDoJogardor: cardInterface[] = [];
   public deckDoRobo: cardInterface[] = [];
-  public fimDeJogo: Boolean = false;
   public cartaJogador: any;
   public cartaRobo: any;
 
@@ -25,6 +24,7 @@ public teste = [1,2,3,4,5]
   public primeiraCartaRobo: any;
 
   public atributoSelecionadoRecebido!: number;
+  public vencedor: String = "";
 
 
 	constructor() {
@@ -107,7 +107,7 @@ public teste = [1,2,3,4,5]
     this.verificaQtdCartas()
   }
 
-  closeModal(){
+  closeModalVencedor(){
     const jogarNovamenteButton = document.getElementById('jogar-novamente');
 
     if (jogarNovamenteButton) {
@@ -121,14 +121,40 @@ public teste = [1,2,3,4,5]
   }
 
   verificaQtdCartas(){
+    
     if(this.deckDoRobo.length == 0 || this.deckDoJogardor.length == 0){
       if(this.deckDoJogardor.length == 0 ) {
-        alert("robo venceu");
+        var modal = document.querySelector('.modal') as HTMLElement;
+        var modalContent = document.querySelector('.modal-content') as HTMLElement;
+        var firstContainer = document.querySelector('.first-container ') as HTMLElement;
+        var secondContainer = document.querySelector('.second-container ') as HTMLElement;
 
-        this.fimDeJogo = true;
+        this.vencedor = "Derrota";
+
+        if(modal){
+            modal.style.display = 'block';
+        } 
+
+        if(modalContent){
+          modalContent.style.background = 'linear-gradient(to bottom, #DA9A5E, #9F536A';
+        }
+
+        if(firstContainer){
+          firstContainer.style.background = 'rgba(87, 0, 5, 0.67)'
+        }
+
+        if(secondContainer){
+          secondContainer.style.background = '#800303'
+        }
+            
+        console.log("robo venceu");
       }else{
-        this.fimDeJogo = true;
-        alert("jogador venceu");
+        var modalContent = document.querySelector('.modal') as HTMLElement;
+        this.vencedor = "Vitória";
+        if(modalContent){
+            modalContent.style.display = 'block';
+        }     
+        console.log("jogador venceu");
       }
     }
   }
