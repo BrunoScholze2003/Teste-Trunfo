@@ -10,6 +10,20 @@
     <img src="../../assets/card-back.png" alt="" class="player-cards-back" *ngFor="let card of teste; let i" [style.margin-left]="i + '10px'">
     <button class="play-btn" (click)="duelo(atributoSelecionadoRecebido)" >Jogar</button>
   </div>
+  <div class="modal">
+    <div class="modal-content">
+      <div class="first-container">
+        <div class="second-container">
+            <h1 class="label">Vitória!</h1>
+        </div>
+      </div>
+      <div class="modalButtonGroup">
+        <button class="modal-button">Retornar para Menu</button>
+        <button class="modal-button" id="jogar-novamente" (click)="closeModal()">Jogar Novamente</button>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 

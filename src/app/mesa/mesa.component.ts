@@ -43,7 +43,7 @@ public teste = [1,2,3,4,5]
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 7; i ++){
+    for(let i = 0; i <= 1; i ++){
       const indiceAleatorio = Math.floor(Math.random() * this.BaralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
@@ -105,6 +105,19 @@ public teste = [1,2,3,4,5]
     console.log(this.deckDoJogardor);
     console.log(this.deckDoRobo)
     this.verificaQtdCartas()
+  }
+
+  closeModal(){
+    const jogarNovamenteButton = document.getElementById('jogar-novamente');
+
+    if (jogarNovamenteButton) {
+      jogarNovamenteButton.addEventListener('click', () => {
+      const modal = document.querySelector('.modal') as HTMLElement;
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    });
+    }
   }
 
   verificaQtdCartas(){

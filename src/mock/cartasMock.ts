@@ -52,7 +52,7 @@ export const cartas: cardInterface[] = [
   ],
   cor: '#fff',
   imageUrl: ''
- },
+ },/*
  {
   titulo: 'Doutor maluko',
   indice: 'A20',
@@ -209,5 +209,5 @@ export const cartas: cardInterface[] = [
   ],
   cor: '#fff',
   imageUrl: ''
- },
+ },*/
 ]
