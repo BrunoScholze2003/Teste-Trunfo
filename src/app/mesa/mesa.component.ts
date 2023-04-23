@@ -1,4 +1,5 @@
 import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { cartas } from 'src/mock/cartasMock';
 import { cardInterface } from '../card/interfaces/card-interface';
 
@@ -27,7 +28,7 @@ public teste = [1,2,3,4,5]
   public vencedor: String = "";
 
 
-	constructor() {
+	constructor(private router:Router) {
     this.destribuirBaralhos();
     this.cartasBatalhando();
   }
@@ -43,7 +44,7 @@ public teste = [1,2,3,4,5]
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 1; i ++){
+    for(let i = 0; i <= 1; i ++){ //era 7
       const indiceAleatorio = Math.floor(Math.random() * this.BaralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
@@ -102,6 +103,7 @@ public teste = [1,2,3,4,5]
     this.deckDoJogardor.push(this.primeiraCartaRobo);
     this.cartasBatalhando()
     console.log("Jogador venceu");
+
     console.log(this.deckDoJogardor);
     console.log(this.deckDoRobo)
     this.verificaQtdCartas()
@@ -120,41 +122,47 @@ public teste = [1,2,3,4,5]
     }
   }
 
+  roboVencedor(){
+    var modal = document.querySelector('.modal') as HTMLElement;
+    var modalContent = document.querySelector('.modal-content') as HTMLElement;
+    var firstContainer = document.querySelector('.first-container ') as HTMLElement;
+    var secondContainer = document.querySelector('.second-container ') as HTMLElement;
+   
+    if(modal || modalContent || firstContainer || secondContainer){
+        modal.style.display = 'block';
+        modalContent.style.background = 'linear-gradient(to bottom, #DA9A5E, #9F536A';
+        firstContainer.style.background = 'rgba(87, 0, 5, 0.67)'
+        secondContainer.style.background = '#800303'
+    }
+
+    this.vencedor = "Derrota";    
+    console.log("robo venceu");
+  }
+
+  
+  navigateToMenu(){
+    console.log("teste")
+    this.router.navigate(['menu']);
+  }
+
+  jogadorVencedor(){
+    var modalContent = document.querySelector('.modal') as HTMLElement;
+
+    if(modalContent){
+        modalContent.style.display = 'block';
+    }    
+
+    this.vencedor = "Vitória";
+    console.log("jogador venceu");
+  }
+
   verificaQtdCartas(){
     
     if(this.deckDoRobo.length == 0 || this.deckDoJogardor.length == 0){
       if(this.deckDoJogardor.length == 0 ) {
-        var modal = document.querySelector('.modal') as HTMLElement;
-        var modalContent = document.querySelector('.modal-content') as HTMLElement;
-        var firstContainer = document.querySelector('.first-container ') as HTMLElement;
-        var secondContainer = document.querySelector('.second-container ') as HTMLElement;
-
-        this.vencedor = "Derrota";
-
-        if(modal){
-            modal.style.display = 'block';
-        } 
-
-        if(modalContent){
-          modalContent.style.background = 'linear-gradient(to bottom, #DA9A5E, #9F536A';
-        }
-
-        if(firstContainer){
-          firstContainer.style.background = 'rgba(87, 0, 5, 0.67)'
-        }
-
-        if(secondContainer){
-          secondContainer.style.background = '#800303'
-        }
-            
-        console.log("robo venceu");
+        this.roboVencedor();
       }else{
-        var modalContent = document.querySelector('.modal') as HTMLElement;
-        this.vencedor = "Vitória";
-        if(modalContent){
-            modalContent.style.display = 'block';
-        }     
-        console.log("jogador venceu");
+        this.jogadorVencedor();
       }
     }
   }
@@ -164,14 +172,21 @@ public teste = [1,2,3,4,5]
       if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substr(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substr(0,1) == "A")){
         if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substr(0,1) == "A"){
           this.roboVenceRodada();
+          alert("neymar");
         }else{
           this.jogadorVenceRodada();
+          alert("messi");
+
         }
       }
 
       if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor){
+        console.log(this.deckDoJogardor[0].atributos[indicie].valor)
+        console.log(this.deckDoRobo[0].atributos[indicie].valor)
         this.jogadorVenceRodada();
       }else{
+        console.log(this.deckDoJogardor[0].atributos[indicie].valor)
+        console.log(this.deckDoRobo[0].atributos[indicie].valor)
         this.roboVenceRodada();
       }
   }

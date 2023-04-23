@@ -42,7 +42,7 @@ export const cartas: cardInterface[] = [
  },
  {
   titulo: 'Capitão America',
-  indice: 'S10',
+  indice: 'F10',
   atributos: [
     { titulo: 'Força', valor: 16 },
     { titulo: 'Agilidade', valor: 17 },
