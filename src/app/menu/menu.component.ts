@@ -21,8 +21,7 @@ export class MenuComponent implements OnInit {
   }
 
   navigateToMesa(){
-    console.log("teste")
-    this.router.navigate(['mesa']);
+    this.router.navigate(['temas']);
   }
 
   openModal(){

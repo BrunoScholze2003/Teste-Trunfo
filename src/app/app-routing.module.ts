@@ -16,7 +16,8 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'mesa', component: MesaComponent,
+    path: 'mesa/:tema',
+    component: MesaComponent,
     loadChildren: () => import('./mesa/mesa.module').then((m) => m.MesaModule)
   },
   {
