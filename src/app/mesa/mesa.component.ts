@@ -28,6 +28,7 @@ export class MesaComponent implements OnInit{
   public vencedor: String = "";
   public jogadorVencedor = 'none';
   public botVencedor = 'none';
+  public resultadoPlacar!: String;
 
 	constructor(private router:Router, private route: ActivatedRoute) {
   }
@@ -63,7 +64,7 @@ export class MesaComponent implements OnInit{
   destribuidorDeCartasJogador(){
     const cartaDistribuida: Array<Number> = [];
 
-    for(let i = 0; i <= 1; i ++){ //era 7
+    for(let i = 0; i <= 1; i ++){ //era 7 tem que ser a metade
       const indiceAleatorio = Math.floor(Math.random() * this.baralhoCompleto.length);
 
       if (cartaDistribuida.includes(indiceAleatorio)) {
@@ -174,15 +175,6 @@ export class MesaComponent implements OnInit{
     console.log("robo venceu");
   }
 
-  mostraPlacar(){
-    var placar = document.querySelector('.placar') as HTMLElement;
-
-    if(placar){
-      placar.style.display= 'flex';
-    }
-  }
-
-
   jogadorVencedorDaPartida(){
     var modal = document.querySelector('.modal') as HTMLElement;
     var modalContent = document.querySelector('.modal-content') as HTMLElement;
@@ -230,10 +222,72 @@ export class MesaComponent implements OnInit{
     }
   }
 
+  varificaPlacar(indicie:any){
+    var placar = document.querySelector('.placar') as HTMLElement;
+
+    if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
+      if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) == "A")){
+        console.log("TRUNFO PERDEU");
+        if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
+          this.resultadoPlacar = "Perdeu a Rodada";
+          if(placar){
+            placar.style.display= 'flex';
+            placar.style.background = '#FF434E'
+          }
+        }else{
+          this.resultadoPlacar = "Venceu a Rodada";
+          if(placar){
+            placar.style.display= 'flex';
+            placar.style.background = '#43FF78'
+          }
+        }
+      }else{
+        console.log("TRUNFO VENCEU A RODADA");
+        if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) != "A"){
+          this.resultadoPlacar = "Venceu a Rodada";
+          if(placar){
+            placar.style.display= 'flex';
+            placar.style.background = '#43FF78'
+          }
+        }
+        if(this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) != "A"){
+          this.resultadoPlacar = "Perdeu a Rodada";
+          if(placar){
+            placar.style.display= 'flex';
+            placar.style.background = '#FF434E'
+          }
+        }
+      }
+    }else{
+      if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor ){
+        this.resultadoPlacar = "Venceu a Rodada";
+        if(placar){
+          placar.style.display= 'flex';
+          placar.style.background = '#43FF78'
+        }
+      }else{
+        this.resultadoPlacar = "Perdeu a Rodada";
+        if(placar){
+          placar.style.display= 'flex';
+          placar.style.background = '#FF434E'
+        }
+      }
+    }
+  }
+
+  clearPlacar(){
+    var placar = document.querySelector('.placar') as HTMLElement;
+
+    if(placar){
+      placar.style.display = 'none';
+    }
+  }
+
   duelo(indicie:any){
     console.log(indicie)
     this.displayRobo = 'block';
     this.animation = 'bot-card';
+    this.varificaPlacar(indicie);
     setTimeout(() => {
       if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
         this.tratamentoTrunfo();
@@ -242,9 +296,6 @@ export class MesaComponent implements OnInit{
         if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor){
           this.jogadorVenceRodada();
           this.jogadorVencedor = 'block';
-          setTimeout(() => {
-            this.mostraPlacar();
-          }, 1000);
         }else{
           this.roboVenceRodada();
           this.botVencedor = 'block';
@@ -254,6 +305,7 @@ export class MesaComponent implements OnInit{
       this.animation = '';
       this.jogadorVencedor = 'none';
       this.botVencedor = 'none';
+      this.clearPlacar();
     }, 4000);
 
   }

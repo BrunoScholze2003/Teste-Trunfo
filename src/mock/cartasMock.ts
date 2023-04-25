@@ -360,7 +360,7 @@ export const cartasCarros: cardInterface[] = [
        imageUrl: 'https://imgur.com/ffItb2n.jpg'
     },
     {
-     titulo: 'Lamborghini Aventador',
+     titulo: 'L. Aventador',
      indice: 'A3',
      atributos: [
        { titulo: 'Velocidade Max', valor: 6 },
@@ -374,7 +374,7 @@ export const cartasCarros: cardInterface[] = [
     },
     {
      titulo: 'Pagani Zonda',
-     indice: 'Q9',
+     indice: 'S9',
      atributos: [
        { titulo: 'Velocidade Max', valor: 11 },
        { titulo: 'Potência(Cv)', valor: 12 },
@@ -387,7 +387,7 @@ export const cartasCarros: cardInterface[] = [
     },
     {
      titulo: 'Buggati Chiron',
-     indice: 'k2',
+     indice: 'Q2',
      atributos: [
        { titulo: 'Velocidade Max', valor: 16 },
        { titulo: 'Potência(Cv)', valor: 17 },
@@ -408,7 +408,7 @@ export const cartasCarros: cardInterface[] = [
        { titulo: '0 a 100', valor: 24 },
        { titulo: 'Aéreo Dinâmico', valor: 25 },
      ],
-     cor: '#fff',
+     cor: '#FF0909',
      imageUrl: 'https://imgur.com/8IuDgAx.jpg'
     },
     {
@@ -437,7 +437,7 @@ export const cartasCarros: cardInterface[] = [
      cor: '#fff',
      imageUrl: 'https://imgur.com/WKjDpZ3.jpg'
     },
-   
+
     {
      titulo: 'Lamborghini Veneno',
      indice: 'A23',
