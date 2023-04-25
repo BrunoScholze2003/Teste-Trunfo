@@ -118,8 +118,8 @@ export class MesaComponent implements OnInit{
   jogadorVenceRodada(){
     this.cartasDaRodada();
 
-    this.deckDoJogardor.push(this.primeiraCartaJogador);
     this.deckDoJogardor.push(this.primeiraCartaRobo);
+    this.deckDoJogardor.push(this.primeiraCartaJogador);
     this.cartasBatalhando()
     console.log("Jogador venceu");
 
@@ -174,6 +174,14 @@ export class MesaComponent implements OnInit{
     console.log("robo venceu");
   }
 
+  mostraPlacar(){
+    var placar = document.querySelector('.placar') as HTMLElement;
+
+    if(placar){
+      placar.style.display= 'flex';
+    }
+  }
+
 
   jogadorVencedorDaPartida(){
     var modal = document.querySelector('.modal') as HTMLElement;
@@ -203,26 +211,40 @@ export class MesaComponent implements OnInit{
     }
   }
 
-  //esta passando duas vezes no duelo, deve ser colocado a linha 222 em um else do priemor if.
+  tratamentoTrunfo(){
+    if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) == "A")){
+      console.log("TRUNFO PERDEU");
+      if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
+        this.roboVenceRodada();
+      }else{
+        this.jogadorVenceRodada();
+      }
+    }else{
+      console.log("TRUNFO VENCEU A RODADA");
+      if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) != "A"){
+        this.jogadorVenceRodada();
+      }
+      if(this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) != "A"){
+        this.roboVenceRodada();
+      }
+    }
+  }
+
   duelo(indicie:any){
     console.log(indicie)
     this.displayRobo = 'block';
     this.animation = 'bot-card';
     setTimeout(() => {
-      if((this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A") || (this.deckDoRobo[0].indice == "S10" && this.deckDoJogardor[0].indice.substring(0,1) == "A")){
-        if(this.deckDoJogardor[0].indice == "S10" && this.deckDoRobo[0].indice.substring(0,1) == "A"){
-          this.roboVenceRodada();
-          console.log("neymar")
-        }else{
-          this.jogadorVenceRodada();
-          console.log("messi")
-
-        }
+      if(this.deckDoJogardor[0].indice == "S10" || this.deckDoRobo[0].indice == "S10"){
+        this.tratamentoTrunfo();
       }
       else{
         if(this.deckDoJogardor[0].atributos[indicie].valor > this.deckDoRobo[0].atributos[indicie].valor){
           this.jogadorVenceRodada();
           this.jogadorVencedor = 'block';
+          setTimeout(() => {
+            this.mostraPlacar();
+          }, 1000);
         }else{
           this.roboVenceRodada();
           this.botVencedor = 'block';
@@ -232,7 +254,8 @@ export class MesaComponent implements OnInit{
       this.animation = '';
       this.jogadorVencedor = 'none';
       this.botVencedor = 'none';
-    }, 3000);
+    }, 4000);
+
   }
 }
 

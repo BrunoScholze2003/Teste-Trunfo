@@ -163,6 +163,24 @@
   border: 2px solid #028f7e;
 }
 
+.placar{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  position: fixed;
+  right: 0%;
+  margin-bottom: -23%;
+  width: 20%;
+  height: 10%;
+  background-color: #43FF78;
+}
+
+.label-placar{
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
 
 @keyframes card-animation-bot {
   from {
