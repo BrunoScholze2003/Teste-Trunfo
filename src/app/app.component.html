@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<div class="po-wrapper">
+  <po-menu
+    [p-collapsed]="true"
+    [p-filter]="false"
+    [p-menus]="menus"
+    p-short-logo="https://imgur.com/SBegGRf.png"
+    p-logo="https://imgur.com/jB7XLNM.png">
+  </po-menu>
+  <router-outlet></router-outlet>
+</div>

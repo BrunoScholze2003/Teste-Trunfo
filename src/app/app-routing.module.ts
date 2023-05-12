@@ -1,30 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuComponent } from './menu/menu.component';
-import { MesaComponent } from './mesa/mesa.component';
-import { MenuTemasComponent } from './menu-temas/menu-temas.component';
+import { ProdutoPageComponent } from './produto/page/produto-page.component';
+import { ProdutoModule } from './produto/produto.module';
+import { CategoriaComponent } from './categorias/componentes/page/categoria.component';
 
 const routes: Routes = [
   {
-    path: '', component: MenuComponent,
-    children: [
-      { path: '', redirectTo: 'menu', pathMatch: 'full' },
-      {
-        path: 'menu',
-        loadChildren: () => import('./menu/menu.module').then((m) => m.MenuModule)
-      }
-    ]
+    path: 'produtos',
+    component: ProdutoPageComponent,
+    loadChildren: () => import('./produto/produto.module').then((m) => m.ProdutoModule)
   },
   {
-    path: 'mesa/:tema',
-    component: MesaComponent,
-    loadChildren: () => import('./mesa/mesa.module').then((m) => m.MesaModule)
+    path: 'categorias',
+    component: CategoriaComponent,
+    loadChildren: () => import('./categorias/categoria.module').then((m) => m.ProdutoModule)
   },
-  {
-    path: 'temas',
-    component: MenuTemasComponent,
-    loadChildren: () => import('./menu-temas/menu-temas.module').then((m) => m.MenuTemasModule)
-  },
+
 ];
 
 @NgModule({
