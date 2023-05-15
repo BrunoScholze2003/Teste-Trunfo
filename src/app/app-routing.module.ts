@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProdutoPageComponent } from './produto/page/produto-page.component';
 import { ProdutoModule } from './produto/produto.module';
-import { CategoriaComponent } from './categorias/componentes/page/categoria.component';
+import { CategoriaPageComponent } from './categoria/page/categoria-page.component';
 
 const routes: Routes = [
   {
@@ -12,10 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'categorias',
-    component: CategoriaComponent,
-    loadChildren: () => import('./categorias/categoria.module').then((m) => m.ProdutoModule)
-  },
-
+    component: CategoriaPageComponent,
+    loadChildren: () => import('./categoria/categoria.module').then((m) => m.CategoriaModule)
+  }
 ];
 
 @NgModule({

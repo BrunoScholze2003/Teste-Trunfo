@@ -1,14 +1,3 @@
-<po-page-dynamic-search
-    p-title="Produtos"
-    [p-breadcrumb]="breadcrumb"
-    [p-filters]="[{ property: 'name' }]"
-    >
-    <div class="po-row">
-        <po-button class="po-sm-2"
-            p-label="Novo Produto">
-        </po-button>
-    </div>
-    <po-table>
-
-    </po-table>
-</po-page-dynamic-search>
+<po-page-default p-title="Produtos" [p-breadcrumb]="breadcrumb">
+  <app-produto-grid></app-produto-grid>
+</po-page-default>
